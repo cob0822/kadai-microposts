@@ -5,16 +5,17 @@
         <div class="row">
             <aside class="col-sm-4">
                 @include("users.card", ["user" => Auth::user()])
-            </aside>
-            <div class="col-sm-8">
                 @if(Auth::id() == $user->id)
                     {!! Form::open(["route" => "microposts.store"]) !!}
-                        <div class="form-group">
+                        <div class="form-group mt-3">
                             {!! Form::textarea("content", old("content"), ["class" => "form-control", "rows" => "2"]) !!}
                             {!! Form::submit("投稿", ["class" => "btn btn-primary btn-block"]) !!}
                         </div>
                     {!! Form::close() !!}
                 @endif
+            </aside>
+            <div class="col-sm-8">
+                
                 @if(count($microposts)>0)
                     @include("microposts.microposts", ["microposts" => $microposts])
                 @endif
