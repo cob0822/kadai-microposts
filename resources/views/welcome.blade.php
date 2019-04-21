@@ -4,18 +4,19 @@
     @if(Auth::check())
         <div class="row">
             <aside class="col-sm-4">
-                @include("users.card", ["user" => Auth::user()])
-                @if(Auth::id() == $user->id)
-                    {!! Form::open(["route" => "microposts.store"]) !!}
-                        <div class="form-group mt-3">
-                            {!! Form::textarea("content", old("content"), ["class" => "form-control", "rows" => "2"]) !!}
-                            {!! Form::submit("投稿", ["class" => "btn btn-primary btn-block"]) !!}
-                        </div>
-                    {!! Form::close() !!}
-                @endif
+                <div class="form-group mb-3">
+                    @include("users.card", ["user" => Auth::user()])
+                    <div class="mt-2">
+                        @if(Auth::id() == $user->id)
+                            {!! Form::open(["route" => "microposts.store"]) !!}
+                                    {!! Form::textarea("content", old("content"), ["class" => "form-control", "rows" => "2"]) !!}
+                                    {!! Form::submit("投稿", ["class" => "btn btn-primary btn-block"]) !!}
+                            {!! Form::close() !!}
+                        @endif
+                    </div>
+                </div>
             </aside>
             <div class="col-sm-8">
-                
                 @if(count($microposts)>0)
                     @include("microposts.microposts", ["microposts" => $microposts])
                 @endif

@@ -10,10 +10,10 @@
                     <p class="mb-0">{!! nl2br(e($micropost->content)) !!}</p>
                 </div>
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-5 col-md-2">
                         @include("post_favorites.favorite_button")
                     </div>
-                    <div class="col-md">
+                    <div class="col">
                         @if(Auth::id() == $micropost->user_id)
                             {!! Form::open(["route" => ["microposts.destroy", $micropost->id], "method" => "delete"]) !!}
                                 {!! Form::submit("削除", ["class" => "btn btn-danger btn-sm"]) !!}

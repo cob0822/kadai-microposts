@@ -6,7 +6,9 @@
             @include("users.card", ["user" => $user])
         </aside>
         <div class="col-sm-8">
-            @include("users.navtabs", ["user" => $user])
+            <div class="mt-2">
+                @include("users.navtabs", ["user" => $user])
+            </div>
             @if(count($microposts) > 0)
                 @include("microposts.microposts", ["microposts" => $microposts])
             @endif
