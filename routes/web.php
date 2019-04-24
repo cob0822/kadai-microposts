@@ -34,6 +34,8 @@ Route::group(["middleware" => ["auth"]], function(){
       Route::get("profile", "UsersController@profile")->name("users.profile");
       Route::post("changeProfile", "UsersController@changeProfile")->name("user.changeProfile");
       Route::delete("destroyProfile", "UsersController@destroyProfile")->name("user.destroyProfile");
+      Route::get("unsubscribe", "UsersController@unsubscribe")->name("users.unsubscribe");
+      Route::delete("unsubscribing", "UsersController@unsubscribing")->name("user.unsubscribing");
    });
    
    Route::group(["prefix" => "microposts/{id}"], function(){

@@ -17,6 +17,7 @@
                             <li class="dropdown-item">{!! link_to_route("users.show", "プロフィール", ["id" => Auth::id()]) !!}</li>
                             <li class="dropdown-item">{!! link_to_route("users.favorites", "お気に入り", ["id" => Auth::id()]) !!}</li>
                             <li class="dropdown-item">{!! link_to_route("users.profile", "プロフィール編集", ["id" => Auth::id()]) !!}</li>
+                            <li class="dropdown-item">{!! link_to_route("users.unsubscribe", "退会", ["id" => Auth::id()]) !!}</li>
                             <li class="dropdown-divider"></li>
                             <li class="dropdown-item">{!! link_to_route('logout.get', 'ログアウト') !!}</li>
                         </ul>

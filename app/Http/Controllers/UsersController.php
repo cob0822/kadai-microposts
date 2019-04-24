@@ -98,6 +98,20 @@ class UsersController extends Controller
         
         return back();
     }
+    
+    public function unsubscribe($id){
+        $user = User::find($id);
+        
+        return view("users.unsubscribe", [
+            "user" => $user, 
+        ]);
+    }
+    
+    public function unsubscribing($id){
+        \DB::table("users")->where("id", $id)->delete();
+        
+        return view("users.unsubscribed");
+    }
 }
 
 
