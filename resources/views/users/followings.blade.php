@@ -11,6 +11,9 @@
                     <img class="rounded img-fluid" src="{{ Gravatar::src($user->email, 500) }}" alt="">
                 </div>
             </div>
+            <div class="mt-2">
+                <p>{{$user->profile}}</p>
+            </div>
             @include("user_follow.follow_button", ["user" => $user])
         </aside>
         <div class="col-sm-8">

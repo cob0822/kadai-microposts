@@ -31,6 +31,9 @@ Route::group(["middleware" => ["auth"]], function(){
       Route::get("followings", "UsersController@followings")->name("users.followings");
       Route::get("followers", "UsersController@followers")->name("users.followers");
       Route::get("favorites", "UsersController@favoritesPosts")->name("users.favorites");
+      Route::get("profile", "UsersController@profile")->name("users.profile");
+      Route::post("changeProfile", "UsersController@changeProfile")->name("user.changeProfile");
+      Route::delete("destroyProfile", "UsersController@destroyProfile")->name("user.destroyProfile");
    });
    
    Route::group(["prefix" => "microposts/{id}"], function(){

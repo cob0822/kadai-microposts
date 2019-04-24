@@ -71,6 +71,33 @@ class UsersController extends Controller
         $data += $this->counts($user);
         
         return view("users.favorites", $data);
+    }
+    
+    public function profile($id){
+        $user = User::find($id);
         
+        return view("users.profile",["user" => $user]);
+    }
+    
+    public function changeProfile(Request $request, $id){
+        $this->validate($request, [
+            "profile" => "required|max:191,"
+        ]);
+        
+        \DB::table("users")->where("id", $id)->update([
+            "profile" => $request->profile,
+        ]);
+
+        return back();
+    }
+    
+    public function destroyProfile($id){
+        \DB::table("users")->where("id", $id)->update([
+            "profile" => Null,
+        ]);
+        
+        return back();
     }
 }
+
+
